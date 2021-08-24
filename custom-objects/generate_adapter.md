@@ -45,6 +45,14 @@ If an existing class needs to be changed – for example, you'd like the class t
 * Fields can be removed, as long as the field number is not used again in your updated class.
 * Changing the type of a field is not supported. You should create a new one instead.
 
+Note: Since Hive has upgraded to null-safety, when adding any non-nullable fields, you need to specify a `defaultValue` otherwise it will throw an exception at runtime. Here is an example of a field that could be added to the class above:
+
+```
+@HiveField(3, defaultValue: 175)
+  int height;
+
+```
+
 ## Enums
 
 Generating an adapter for enums works almost as it does for classes:
